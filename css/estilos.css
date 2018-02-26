@@ -1,0 +1,41 @@
+body {
+/*	
+background: 
+ rgb(155,40,33);
+ background: #0000ff;
+ background: 
+
+blue
+color:white;
+*/
+background: blue;
+color:peru;
+/*
+background:
+color:hotpink; 
+*/
+}
+header{
+	border: 1px solid black;
+	text-align: center;
+}
+header nav ul li
+{
+background: orange;
+border: 1px solid black;
+border-radius: 5px;
+display: inline-block;
+width: 100px;
+
+}
+
+header nav ul li:hover
+{
+  background: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  width: 100px;
+  
+}
+
