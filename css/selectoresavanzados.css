@@ -1,0 +1,56 @@
+
+
+
+
+/*seleccionar solo el elementro p que est'a inmediatamente despues del elemento*/
+h2 + p {
+
+color: green;
+
+}
+
+
+/*seleccionar todos los hermanos del tipo de elemento inmediatamente despues del elemento*/
+
+h2 ~ p{
+color:gray;
+
+
+}
+/*poner en color rojo el texto de las secciones menos el id="referencias"*/
+#resumen,#experimento,#pruebas,#resultados,#conclusiones{
+
+	color: tomato;
+}
+/*poner en color rosa el texto de las secciones menos el id ="referencias"*/
+section:not(#referencias){
+color:hotpink;
+
+
+
+
+}
+/*seleccionar elementos LI pares */
+li:nth-child(odd)
+{
+
+color:  blue;
+
+}
+
+li:nth-child(5){
+
+color red;
+}
+li:nth-child(1){
+
+color: purple;
+
+}
+
+article:nth-last-child(1){
+
+color:yellow;
+
+
+}
