@@ -10,6 +10,7 @@ function  muestraPantallaPrincipal() {
 	PantallaPrincipal = new BrowserWindow({width:620,height:825});
 	//Le damos contenido a esa pantalla.
 	PantallaPrincipal.loadURL(url.format({ pathname:path.join(__dirname,"index.html"),protocol:"file",slashes:true  }));
+	PantallaPrincipal.
 	PantallaPrincipal.show();
 
 }
