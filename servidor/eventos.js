@@ -2,7 +2,7 @@ var inicioApp = function(){
 	var Aceptar = function(){
 		var usuario=$("#txtUsuario").val();
 		var clave=$("#txtClave").val();
-		var parametros="opc=validaentrada"+"&usuario="+usuario+"&clave="+clave+"&aleatorio="+Math.random();
+		var parametros="opc=validaentrada"+"&usuario="+usuario+"&clave"+clave+"&aleatorio="+Math.random();
 		$.ajax({
 			cache:false,
 			type: "POST",
@@ -11,8 +11,7 @@ var inicioApp = function(){
 			data: parametros,
 			success: function(response){
 				if(response.respuesta == true){
-					//alert("Bienvenido");
-					$("#secInicio").hide("slow");
+					alert("Bienvenido");
 				}else{
 					alert("usuario o clave incorrecta(s)");
 				}
@@ -22,7 +21,7 @@ var inicioApp = function(){
 			}
 		});
 	}
-	$("#btnAceptar").on("click",Aceptar);
+	$("btnAceptar").on("click",Aceptar);
 }
 
 $(document).ready(inicioApp);
