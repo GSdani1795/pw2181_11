@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Listado de Alumnos</title>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js
+"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="E:\Proyecto Final Nevarez\estilos.css">
+</head>
+<body>
+
+<form>
+<article id = "Usuario">
+  User name:<br>
+  <input id = "nombre" type="text" name="username"><br>
+  User password:<br>
+  <input id = "contraseña" type="text" name="password" value="" >
+</article>
+<br>
+<button id="boton" value=" "  onclick= "peticion()"  > enviar </button>
+</form>
+
+	<script>
+
+const {BrowserWindow}=require('electron').remote;
+const app=require('electron').app;
+const path=require('path');
+const url=require('url');
+const $ = require('jquery');
+let informacion;
+
+
+
+
+var inicia = function(){function peticion(){
+
+var entrada = function(){
+		var usuario = document.getElementById("nombre").val();
+		var clave   = document.getElementById("contraseña").val();
+		var aux='';
+		$.ajax({
+			url: "http://itculiacan.edu.mx/dadm/apipaselista/data/validausuario.php?usuario="+usuario+"&clave="+clave,
+			dataType: 'json',
+			type: "POST", 
+
+			success: function(data){
+				if(data.respuesta == true){
+				
+					aux=data.usuariovalida;
+					
+	PantallaDetalle = new BrowserWindow({width:1200,height:1300});
+	PantallaDetalle.loadURL(url.format({
+		pathname: path.join(__dirname,'lstMaterias.html'),
+		protocol: 'file',
+		slashes: true
+	}))
+	    PantallaDetalle.webContents.openDevTools();
+		PantallaDetalle.show();
+		
+		
+				}
+				else
+				{
+					alert("Usuario y/o clave incorrectos");
+				}
+			},
+			error:function(a,b,c){
+				alert("No se pudo conectar al server");
+			}
+		});
+	}
+	$("#Start").on("click",entrada);
+	
+}
+
+
+
+$(document).ready(inicia);
+
+	</script>
+</body>
+</html>

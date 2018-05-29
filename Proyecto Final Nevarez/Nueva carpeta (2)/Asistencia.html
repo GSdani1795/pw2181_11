@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Asistencia</title>
+</head>
+<body>
+	
+  <input id = "Asistencia" type="checkbox" name="Asistencia" onclick="validar()" value=""> Asistencia<br>
+  <input id = "Falta" type="checkbox" name="Falta" value="" onclick="validar()"> Falta<br>
+
+  <button id="Enviar" value=" " > enviar </button>
+</body>
+<script>
+
+	function validar(){
+if (document.getElementById("Asistencia").checked == true ) {
+
+document.getElementById("Falta").checked = false;
+require('electron').remote.getGlobal('ASISTENCIA').incidencia=1;
+
+}
+
+if (document.getElementById("Falta").checked == true) {
+
+document.getElementById("Asistencia").checked = false;
+require('electron').remote.getGlobal('ASISTENCIA').incidencia=2;
+
+}
+
+
+
+
+
+
+</script>
+</html>
